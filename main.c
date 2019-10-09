@@ -7,6 +7,13 @@ int main() {
     char **str_ptrs = 0;
     int lines = 0;
 
+    printf("||**********************************************||\n");
+    printf("||The program sorts the text alphabetically.    ||\n");
+    printf("||v5.3                                          ||\n");
+    printf("||Made by Dmitry Drozdov                 10.2019||\n");
+    printf("||                                 (C)for \"Ilab\"||\n");
+    printf("||**********************************************||\n");
+
     FILE *f = fopen("C:\\Users\\dadro\\CLionProjects\\OneginV5\\text.txt", "rb");
     if (f == NULL) {
         printf("file not found");
@@ -25,16 +32,14 @@ int main() {
 
     for (int i = 0; i < lines; i++)
         printf ("%s\n", str_ptrs[i]);
+    fclose(stdout);
 
     qsort(str_ptrs, lines, sizeof(char **), compare);
-
-    fclose(stdout);
 
     freopen("C:\\Users\\dadro\\CLionProjects\\OneginV5\\sort_text.txt", "w", stdout);
 
     for (int i = 0; i < lines; i++)
         printf ("%s\n", str_ptrs[i]);
-
     fclose(stdout);
 
     qsort(str_ptrs, lines, sizeof(char **), compare_rif);
