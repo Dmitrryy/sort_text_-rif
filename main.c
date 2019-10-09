@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-char* getstr (FILE *f);
-void change (char* str, int *lines);
-char** arr_point (char * text, int lines);
-int compare_rif (const void * str1, const void * str2);
-int compare (const void * str1, const void * str2);
+#include "else.h"
 
 int main() {
     char *text = 0;
@@ -49,7 +44,7 @@ int main() {
     for (int i = 0, j = lines - 1; i < j; i++, j--) {
         printf("%s\n", str_ptrs[i]);
         printf("%s\n", str_ptrs[j]);
-        if (i % 4 == 3)
+        if (i % (Size_Verse / 2) == 3)
             printf("\n");
     }
     fclose(stdout);

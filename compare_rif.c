@@ -1,4 +1,4 @@
-
+#include "else.h"
 
 int compare_rif (const void * str1, const void * str2) {
     int stat = 0;
@@ -6,12 +6,14 @@ int compare_rif (const void * str1, const void * str2) {
     char ** strx = (char**)str1;
     char ** stry = (char**)str2;
 
-    for ( ; (*strx)[k] != '\0'; k++)
+    /*for ( ; (*strx)[k] != '\0'; k++)
         ;
     for ( ; (*stry)[j] != '\0'; j++)
-        ;
+        ;*/
+    k = str_len(*strx);
+    j = str_len(*stry);
 
-    while ((k >=0 ) && (j >= 0) && (stat <= 2)) {
+    while ((k >=0 ) && (j >= 0) && (stat <= Rhyme_Size)) {
         for ( ; (*strx)[k] < 'a' || (*strx)[k] > 'z'; ) {
             k--;
             if (k < 0)

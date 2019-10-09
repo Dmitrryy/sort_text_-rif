@@ -2,13 +2,13 @@
 #include <stdlib.h>
 
 char* getstr (FILE *f) {
-    int long lenall = 0;
+    int long len_all = 0;
 
     fseek(f, 0, SEEK_END);
 
-    lenall = ftell(f);
+    len_all = ftell(f);
 
-    char *text = (char *) calloc(lenall + 1, sizeof(char));
+    char *text = (char *) calloc(len_all + 1, sizeof(char));
 
     fseek(f, 0, SEEK_SET);
 

@@ -1,5 +1,3 @@
-
-
 void change (char* str, int *lines) {
     int stat1 = 0;
 
