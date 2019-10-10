@@ -1,20 +1,21 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "else.h"
 
 char* getstr (FILE *f) {
-    int long len_all = 0;
+    unsigned long long len_all = 0;
 
     fseek(f, 0, SEEK_END);
-
     len_all = ftell(f);
 
     char *text = (char *) calloc(len_all + 1, sizeof(char));
+    if (text == 0)
+        return 0;
 
     fseek(f, 0, SEEK_SET);
 
-    freopen("C:\\Users\\dadro\\CLionProjects\\oneginV5\\text.txt", "rb", stdin);
-
-    scanf("%[^\0]", text);
+    unsigned long long stat = fread (text, sizeof(char), len_all, f);
+    if (stat != len_all)
+        text = 0;
+    text[len_all] = '\0';
 
     return text;
 }

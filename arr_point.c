@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "else.h"
 
 char** arr_point (char * text, const int lines) {
     char **str_ptrs = (char **) calloc(lines + 1, sizeof(char *));
@@ -10,7 +10,7 @@ char** arr_point (char * text, const int lines) {
     for (int i = 0; k < lines; i++) {
         if (text[i] != '\0')
             if (stat != 0)
-                if ((text[i] >= 'a') && (text[i] <= 'z')) {
+                if (isalpha(text[i]) != 0) {
                     stat = 0;
                     str_ptrs[k++] = &text[i];
                 }

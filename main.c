@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "else.h"
 
 int main() {
@@ -19,43 +17,33 @@ int main() {
         printf("file not found");
         return 1;
     }
-
     text = getstr(f);
-
+    if (text == 0) {
+        printf ("error reading file\n");
+        return 1;
+    }
     fclose(f);
 
-    change(text, &lines);
+    change (text, &lines);
 
-    str_ptrs = arr_point(text, lines);
+    str_ptrs = arr_point (text, lines);
 
-    freopen("C:\\Users\\dadro\\CLionProjects\\OneginV5\\orig_text_chang.txt", "w", stdout);
+    char** str_ptrs_cpy = (char**) calloc (lines + 1, sizeof(char*));
+    assert (str_ptrs_cpy != 0);
+    ptr_cpy (str_ptrs_cpy, str_ptrs);
+    qsort (str_ptrs_cpy, lines, sizeof(char **), compare);
+    writer_text ("SORTED_TEXT", str_ptrs_cpy, 1, "C:\\Users\\dadro\\CLionProjects\\OneginV5\\CHANGE_TEXT.txt", "w");
 
-    for (int i = 0; i < lines; i++)
-        printf ("%s\n", str_ptrs[i]);
-    fclose(stdout);
+    ptr_cpy (str_ptrs_cpy, str_ptrs);
+    qsort (str_ptrs_cpy, lines, sizeof(char **), compare_rif);
+    creat_rhyme (str_ptrs_cpy, lines);
+    writer_text ("SORTED_RIF_TEXT", str_ptrs_cpy, Size_Verse, "C:\\Users\\dadro\\CLionProjects\\OneginV5\\CHANGE_TEXT.txt", "a");
 
-    qsort(str_ptrs, lines, sizeof(char **), compare);
-
-    freopen("C:\\Users\\dadro\\CLionProjects\\OneginV5\\sort_text.txt", "w", stdout);
-
-    for (int i = 0; i < lines; i++)
-        printf ("%s\n", str_ptrs[i]);
-    fclose(stdout);
-
-    qsort(str_ptrs, lines, sizeof(char **), compare_rif);
-
-    freopen("C:\\Users\\dadro\\CLionProjects\\OneginV5\\sort_text_rif.txt", "w", stdout);
-
-    for (int i = 0, j = lines - 1; i < j; i++, j--) {
-        printf("%s\n", str_ptrs[i]);
-        printf("%s\n", str_ptrs[j]);
-        if (i % (Size_Verse / 2) == 3)
-            printf("\n");
-    }
-    fclose(stdout);
+    writer_text ("ORIG_CHANGE_TEXT", str_ptrs, 1, "C:\\Users\\dadro\\CLionProjects\\OneginV5\\CHANGE_TEXT.txt", "a");
 
     free(text);
     free(str_ptrs);
+    free(str_ptrs_cpy);
 
     return 0;
 }

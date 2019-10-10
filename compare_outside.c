@@ -6,20 +6,16 @@ int compare_rif (const void * str1, const void * str2) {
     char ** strx = (char**)str1;
     char ** stry = (char**)str2;
 
-    /*for ( ; (*strx)[k] != '\0'; k++)
-        ;
-    for ( ; (*stry)[j] != '\0'; j++)
-        ;*/
     k = str_len(*strx);
     j = str_len(*stry);
 
     while ((k >=0 ) && (j >= 0) && (stat <= Rhyme_Size)) {
-        for ( ; (*strx)[k] < 'a' || (*strx)[k] > 'z'; ) {
+        for ( ; isalpha((*strx)[k]) == 0; ) {
             k--;
             if (k < 0)
                 break;
         }
-        for ( ; (*stry)[j] < 'a' || (*stry)[j] > 'z'; ) {
+        for ( ; isalpha((*stry)[j]) == 0; ) {
             j--;
             if (j < 0)
                 break;
