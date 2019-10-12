@@ -5,6 +5,13 @@ void swop (void * elem1, void * elem2, size_t size) {
     static int  store_size = 0;
     static void * tmp = 0;
 
+    if (size == 0)
+        if (tmp != 0){
+            free (tmp);
+            tmp = 0;
+            return;
+        }
+
     if (store_size != size) {
         store_size = size;
         if (tmp != 0)
