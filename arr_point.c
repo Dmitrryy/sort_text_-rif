@@ -1,6 +1,5 @@
 #include "else.h"
 
-///программа, создающая массив указателей на начала строк
 char** arr_point (char * text, const int lines) {
     char **str_ptrs = (char **) calloc(lines + 1, sizeof(char *));
 

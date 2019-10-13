@@ -1,6 +1,5 @@
 #include "else.h"
 
-///функция, которая меняет местами два элемента типа void *
 void swop (void * elem1, void * elem2, size_t size) {
 
     static int  store_size = 0;

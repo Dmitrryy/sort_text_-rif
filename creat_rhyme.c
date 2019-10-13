@@ -1,6 +1,5 @@
 #include "else.h"
 
-///типа создатель рифм))
 void creat_rhyme (char ** text, int lines) {
 
     char** copy_text = (char**) calloc (lines + 1, sizeof(char*));
