@@ -1,13 +1,14 @@
 #include "else.h"
 
+//сравнивает строки по их концу
 int compare_rif (const void * str1, const void * str2) {
     int stat = 0;
-    int k = 0, j = 0;
+    unsigned long long k = 0, j = 0;
     char ** strx = (char**)str1;
     char ** stry = (char**)str2;
 
-    k = str_len(*strx);
-    j = str_len(*stry);
+    k = strlen(*strx);
+    j = strlen(*stry);
 
     while ((k >=0 ) && (j >= 0) && (stat <= Rhyme_Size)) {
         for ( ; isalpha((*strx)[k]) == 0; ) {

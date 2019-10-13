@@ -1,5 +1,8 @@
 #include "else.h"
 
+//выводит текст в файл
+//ad - Заголовок
+//mode - режим, в котором откроется файл
 void writer_text (const char * ad, char ** text, int size_verse, const char * file, const char * mode) {
 
     freopen(file, mode, stdout);
