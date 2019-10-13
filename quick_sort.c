@@ -1,19 +1,19 @@
 #include "else.h"
 
-//аналаг qsort
+///аналаг qsort
 void quick_sort (void * ptr, size_t nom_elem, size_t size, int (*compare) (const void * , const void *)) {
 
     unsigned long long i = 0, j = nom_elem - 1;
     unsigned long long k = nom_elem / 2;
     unsigned long long centre = 0;
-    static unsigned long long dep = 0;  //глубина рекурсии
+    static unsigned long long dep = 0;  ///глубина рекурсии
 
     if (nom_elem <= 1) {
         dep--;
         return;
     }
 
-    if (nom_elem <= 3) {  //если в массиве не больше 3 элементов не уходим в рекурсию
+    if (nom_elem <= 3) {  ///если в массиве не больше 3 элементов не уходим в рекурсию
         for (unsigned long long f = 0; f < nom_elem - 1; f++)
             for (unsigned long long n = 0; n < nom_elem - 1 - f; n++)
                 if (compare(ptr + n * size, ptr + (n + 1) * size) > 0) {
@@ -48,7 +48,7 @@ void quick_sort (void * ptr, size_t nom_elem, size_t size, int (*compare) (const
     dep++;
     quick_sort (ptr + (centre + 1) * size, nom_elem - centre - 1, size, compare);
     quick_sort (ptr, centre, size, compare);
-    if (dep == 0) {  //если глубина рекурсии снова 0, отправляем в swop нулевые данные для освобождения памяти после calloc
+    if (dep == 0) {  ///если глубина рекурсии снова 0, отправляем в swop нулевые данные для освобождения памяти после calloc
         swop(0, 0, 0);
         return;
     }

@@ -1,6 +1,6 @@
 #include "else.h"
 
-//сравнивает строки по их концу
+///сравнивает строки по их концу
 int compare_rif (const void * str1, const void * str2) {
     int stat = 0;
     unsigned long long k = 0, j = 0;

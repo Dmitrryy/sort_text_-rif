@@ -7,7 +7,7 @@
 #define Size_Verse  8
 #define Rhyme_Size 2
 
-short* getstr (FILE *f);
+char* getstr (FILE *f);
 void change (char* str, int *lines);
 char** arr_point (char * text, int lines);
 int compare_rif (const void * str1, const void * str2);

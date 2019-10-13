@@ -1,6 +1,6 @@
 #include "else.h"
 
-//выводим строку в один большей массив
+///выводим строку в один большей массив
 char* getstr (FILE *f) {
     unsigned long long len_all = 0;
 

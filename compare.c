@@ -1,6 +1,6 @@
 #include "else.h"
-//compare
-//сравнивает строки по их началу
+///compare
+///сравнивает строки по их началу
 int compare (const void * strx, const void * stry) {
     int k = 0, j = 0;
     char ** strx1 = (char**)strx;
