@@ -1,5 +1,13 @@
 #include "else.h"
-
+/**
+ * @brief Функция для вывода массива с текстом в файл
+ *
+ * @param[in] ad - заголовок, который распечатается перед текстом
+ * @param[in] text - текст, который необходимо вывести в файл
+ * @param[in] size_verse - при необходимости распечатать куплетами, указать размер. В ином случае равен 1
+ * @param[in] file - куда выводить текст
+ * @param[in] mode - в каком режиме открывается текст
+ */
 void writer_text (const char * ad, char ** text, int size_verse, const char * file, const char * mode) {
 
     freopen(file, mode, stdout);

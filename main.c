@@ -1,5 +1,14 @@
 #include "else.h"
-
+/**
+ * @mainpage РџСЂРѕРіСЂР°РјРјР° РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё С‚РµРєСЃС‚Р° РїРѕ Р°Р»С„Р°РјРёС‚Сѓ Рё СЃРѕР·РґР°РЅРёРµ РїСЃРµРІРґРѕ СЂРёС„РјС‹.
+ * \brief РЎРѕСЂС‚РёСЂРѕРІРєР° С‚РµРєСЃС‚Р°
+ * \author Р”СЂРѕР·РґРѕРІ Р”.Рђ.
+ * \version 5.3 (final)
+ * \date РѕРєС‚СЏР±СЂСЊ 2019 РіРѕРґР°
+ * \warning РЅРµ СЂР°Р±РѕС‚Р°РµС‚ РЅР° СЂСѓСЃСЃРєРѕРј СЏР·С‹РєРµ!!!
+ *
+ * РџСЂРѕРіСЂР°РјРјР° СЃРѕСЂС‚РёСЂСѓРµС‚ С‚РµРєСЃС‚Р° РЅР°С…РѕРґСЏС‰РёР№СЃСЏ РІ С„Р°Р№Р»Рµ РїРѕРґ РёРјРµРЅРµРј "text.txt" Рё РІС‹РґР°РµС‚ СЂРµР·СѓРґСЊС‚Р°С‚ РІ С„Р°Р№Р»  "CHANGE_TEXT.txt"
+ */
 int main() {
     char *text = 0;
     int lines = 0;
@@ -16,27 +25,26 @@ int main() {
         printf("file not found");
         return 1;
     }
-    text = getstr(f);  ///выводим текст из вайла в массив
+    text = getstr(f);
     if (text == 0) {
         printf ("error reading file\n");
         return 1;
     }
     fclose(f);
 
-    change (text, &lines); ///отправляем текст на изменения в change
+    change (text, &lines);
 
-    char** str_ptrs = arr_point (text, lines);  ///создаем массив указателей
+    char** str_ptrs = arr_point (text, lines);
 
-    char** str_ptrs_cpy = (char**) calloc (lines + 1, sizeof(char*));  ///создаем массив для копии массива указателей
+    char** str_ptrs_cpy = (char**) calloc (lines + 1, sizeof(char*));
     assert (str_ptrs_cpy != 0);
-    ptr_cpy (str_ptrs_cpy, str_ptrs);  ///делаем копию указателей
-    quick_sort (str_ptrs_cpy, lines, sizeof(char **), compare);  ///сортируем текст по алфавиту
-    //выводим результат в файл
+    ptr_cpy (str_ptrs_cpy, str_ptrs);
+    quick_sort (str_ptrs_cpy, lines, sizeof(char **), compare);
     writer_text ("SORTED_TEXT", str_ptrs_cpy, 1, "C:\\Users\\dadro\\CLionProjects\\OneginV5\\CHANGE_TEXT.txt", "w");
 
-    ptr_cpy (str_ptrs_cpy, str_ptrs);  ///снова копируем
-    quick_sort (str_ptrs_cpy, lines, sizeof(char **), compare_rif);  ///сортируем по концу строк
-    creat_rhyme (str_ptrs_cpy, lines);  ///типа рифму создаем
+    ptr_cpy (str_ptrs_cpy, str_ptrs);
+    quick_sort (str_ptrs_cpy, lines, sizeof(char **), compare_rif);
+    creat_rhyme (str_ptrs_cpy, lines);
     writer_text ("SORTED_RIF_TEXT", str_ptrs_cpy, Size_Verse, "C:\\Users\\dadro\\CLionProjects\\OneginV5\\CHANGE_TEXT.txt", "a");
 
     writer_text ("ORIG_CHANGE_TEXT", str_ptrs, 1, "C:\\Users\\dadro\\CLionProjects\\OneginV5\\CHANGE_TEXT.txt", "a");
