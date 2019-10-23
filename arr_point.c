@@ -17,6 +17,7 @@
  */
 char** arr_point (char * text, const int lines) {
     char **str_ptrs = (char **) calloc(lines + 1, sizeof(char *));
+    assert (str_ptrs != 0);
 
     int stat = 1;
     int k = 0;

@@ -11,6 +11,7 @@
  * @param[in] compare - указатель на функцию, которая сравнивает элементы
  */
 void quick_sort (void * ptr, size_t nom_elem, size_t size, int (*compare) (const void * , const void *)) {
+    assert (ptr != 0);
 
     unsigned long long i = 0, j = nom_elem - 1;
     unsigned long long k = nom_elem / 2;  ///номер элемента относительно которого происходят сравнения
@@ -61,7 +62,7 @@ void quick_sort (void * ptr, size_t nom_elem, size_t size, int (*compare) (const
     quick_sort (ptr + (centre + 1) * size, nom_elem - centre - 1, size, compare);
     quick_sort (ptr, centre, size, compare);
     if (dep == 0) {   ///qsort выходит из рекурсии => сортировка подходит к концу
-        swop(0, 0, 0); ///когда ыцщз получает нулевые аргументы, происходит освобождение дин.памяти.
+        swop(0, 0, 0); ///когда swop получает нулевые аргументы, происходит освобождение дин.памяти.
         return;
     }
 }

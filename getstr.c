@@ -6,6 +6,8 @@
  * @return указатель на массив с текстом
  */
 char* getstr (FILE *f) {
+    assert (f != 0);
+
     unsigned long long len_all = 0;
 
     fseek(f, 0, SEEK_END);
@@ -19,7 +21,8 @@ char* getstr (FILE *f) {
 
     unsigned long long stat = fread (text, sizeof(char), len_all, f); ///stat - кол-во символов, которое было прочитано
     if (stat != len_all)   ///в случае несовпадения кол-ва символов в тексте с прочитанным кол-вом символом выдается предупреждение об ошибке считывания
-        text = 0;
+        return 0;
+
     text[len_all] = '\0';
 
     return text;

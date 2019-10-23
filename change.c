@@ -10,11 +10,11 @@
  * @param[out] lines - кол-во не пустных строк
  */
 void change (char* str, int *lines) {
-    int stat1 = 0;
+    int stat1 = 0, i = 0;
 
-    for (int i = 0; str[i] != '\0'; i++) {
+    for (i = 0; str[i] != '\0'; i++) {
         str[i] = (char)tolower(str[i]);
-        if (str[i] == '\r')
+        if (str[i] == '\r' || str[i] == '\n')
             str[i] = '\0';
         if (str[i] == '\0')
             if (stat1 == 1) {

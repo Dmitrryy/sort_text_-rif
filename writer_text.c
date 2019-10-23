@@ -9,6 +9,8 @@
  * @param[in] mode - в каком режиме открывается текст
  */
 void writer_text (const char * ad, char ** text, int size_verse, const char * file, const char * mode) {
+    assert (text != 0);
+    assert (file != 0);
 
     freopen(file, mode, stdout);
     printf ("\n\n**********%s**********\n\n", ad);

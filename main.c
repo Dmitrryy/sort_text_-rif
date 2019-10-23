@@ -3,7 +3,7 @@
  * @mainpage Программа для сортировки текста по алфамиту и создание псевдо рифмы.
  * \brief Сортировка текста
  * \author Дроздов Д.А.
- * \version 5.3 (final)
+ * \version 5.5 (final)
  * \date октябрь 2019 года
  * \warning не работает на русском языке!!!
  *
@@ -38,7 +38,7 @@ int main() {
 
     char** str_ptrs_cpy = (char**) calloc (lines + 1, sizeof(char*));
     assert (str_ptrs_cpy != 0);
-    ptr_cpy (str_ptrs_cpy, str_ptrs);
+    ptr_cpy (str_ptrs_cpy, str_ptrs); //memcpy
     quick_sort (str_ptrs_cpy, lines, sizeof(char **), compare);
     writer_text ("SORTED_TEXT", str_ptrs_cpy, 1, "C:\\Users\\dadro\\CLionProjects\\OneginV5\\CHANGE_TEXT.txt", "w");
 
